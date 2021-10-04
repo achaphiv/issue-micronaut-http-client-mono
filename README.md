@@ -1,12 +1,15 @@
-## Micronaut 3.0.3 Documentation
+# Issue
 
-- [User Guide](https://docs.micronaut.io/3.0.3/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.0.3/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.0.3/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+Run: `./gradlew test`
 
-## Feature http-client documentation
+See exception:
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+```text
+class reactor.core.publisher.FluxOnErrorResume cannot be cast to class reactor.core.publisher.Mono (reactor.core.publisher.FluxOnErrorResume and reactor.core.publisher.Mono are in unnamed module of loader 'app')
+java.lang.ClassCastException: class reactor.core.publisher.FluxOnErrorResume cannot be cast to class reactor.core.publisher.Mono (reactor.core.publisher.FluxOnErrorResume and reactor.core.publisher.Mono are in unnamed module of loader 'app')
+  at com.example.IssueTest$WhateverClient$Intercepted.index(Unknown Source)
+  at com.example.IssueTest.testItWorks(IssueTest.java:23)
+...
+```
 
+This is different from micronaut 2.x with `micronaut-reactor-http-client`.
